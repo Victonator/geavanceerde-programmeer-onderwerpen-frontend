@@ -1,0 +1,15 @@
+<table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-hover">
+  <thead class="bg-primary text-white">
+  <tr>
+    <th scope="col">Name</th>
+    <th scope="col">Series</th>
+
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let studio of (studios)" (click)="detail(studio.name)">
+    <td>{{studio.name}}</td>
+    <td>{{studio.seriesAmount}}</td>
+  </tr>
+  </tbody>
+</table>
