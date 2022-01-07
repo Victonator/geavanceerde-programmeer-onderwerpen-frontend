@@ -1,0 +1,40 @@
+<h1>{{anime.name}}</h1>
+
+<div class="row">
+  <div class="row col-md-2">
+
+    <p class="col-6 col-md-12">Genre: {{anime.genre}}</p>
+    <p class="col-6 col-md-12">Is movie:
+      <span *ngIf="anime.movie"><i class="fas fa-check"></i></span>
+      <span *ngIf="!anime.movie"><i class="fas fa-times"></i></span>
+    </p>
+
+    <p class="col-6 col-md-12">Episodes: {{anime.episodes}}</p>
+    <p *ngIf="!anime.movie" class="col-6 col-md-12">Season: {{anime.season}}</p>
+    <p *ngIf="anime.movie" class="col-6 col-md-12">Season: N/A</p>
+
+    <p class="col-6 col-md-12">Air date: {{anime.yearAired}}</p>
+    <p class="col-6 col-md-12">Studio: {{anime.studio}}</p>
+
+  </div>
+  <div class="col-md-8">
+    <h4>Characters:</h4>
+    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-hover">
+      <thead class="bg-primary text-white">
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Gender</th>
+        <th scope="col">Birthday</th>
+
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let char of (anime.characters)">
+        <td>{{char.name}}</td>
+        <td>{{Gender[char.gender]}}</td>
+        <td>{{char.birthday}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

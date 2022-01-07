@@ -1,0 +1,23 @@
+<h1>{{studio.name}}</h1>
+<h6>Amount of series:{{studio.seriesAmount}}</h6>
+
+<h4>Series:</h4>
+<table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-hover">
+  <thead class="bg-primary text-white">
+  <tr>
+    <th scope="col">Name</th>
+    <th scope="col">Genre</th>
+    <th scope="col">Seasons</th>
+    <th scope="col">Episodes</th>
+
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let serie of (studio.series)" (click)="detail(serie.name)">
+    <td>{{serie.name}}</td>
+    <td>{{serie.genre}}</td>
+    <td>{{serie.season}}</td>
+    <td>{{serie.episodes}}</td>
+  </tr>
+  </tbody>
+</table>

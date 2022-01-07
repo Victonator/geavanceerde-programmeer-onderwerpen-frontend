@@ -1,0 +1,21 @@
+<table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-hover">
+  <thead class="bg-primary text-white">
+  <tr>
+    <th scope="col">Name</th>
+    <th scope="col">Genre</th>
+    <th scope="col">Seasons</th>
+    <th scope="col">Episodes</th>
+
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let serie of (series)" (click)="detail(serie.name)">
+    <td>{{serie.name}}</td>
+    <td>{{serie.genre}}</td>
+    <td *ngIf="!serie.movie">{{serie.season}}</td>
+    <td *ngIf="serie.movie">N/A</td>
+    <td>{{serie.episodes}}</td>
+  </tr>
+  </tbody>
+</table>
+
